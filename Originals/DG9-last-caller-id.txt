@@ -1,0 +1,8 @@
+# apr/ 4/2023 21:56:32 by RouterOS 6.49.5
+# software id = CU61-PG94
+#
+ 0   name=juniorrmoraes service=pppoe caller-id="" password=2poyzpTxNCJf profile=profile-fibra-ipv4-ipv6 remote-address=179.124.197.201 routes="" ipv6-routes="" limit-bytes-in=0 limit-bytes-out=0 last-logged-out=jan/29/2023 04:07:22 last-caller-id=98:DA:C4:28:E4:3F last-disconnect-reason=hung-up 
+ 1   name=luandsdbem service=pppoe caller-id="" password=8ve1fkS3zTym profile=profile-fibra-ipv4-ipv6 remote-address=100.74.52.69 routes="" ipv6-routes="" limit-bytes-in=0 limit-bytes-out=0 last-logged-out=apr/02/2023 08:37:11 last-caller-id=08:55:31:3E:9C:76 last-disconnect-reason=hung-up 
+ 2 X name=simeitgoncalves service=pppoe caller-id="" password=5VzydGYvufna profile=profile-fibra-ipv4-ipv6 remote-address=100.74.60.30 routes="" ipv6-routes="" limit-bytes-in=0 limit-bytes-out=0 last-logged-out=dec/24/2022 10:48:31 last-caller-id=B8:69:F4:65:41:54 last-disconnect-reason=hung-up 
+ 3   name=juniormagnus service=pppoe caller-id="" password=a2tr*Va7d* profile=profile-fibra-ipv4-ipv6 remote-address=179.124.197.170 routes="" ipv6-routes="" limit-bytes-in=0 limit-bytes-out=0 last-logged-out=apr/02/2023 08:37:09 last-caller-id=DC:2C:6E:45:E0:C6 last-disconnect-reason=hung-up 
+ 4   name=rodrigosnunes service=pppoe caller-id="" password=BeBr49X1EVvn profile=profile-fibra-ipv4-ipv6 remote-address=177.72.24.157 routes="" ipv6-routes="" limit-bytes-in=0 limit-bytes-out=0 last-logged-out=apr/02/2023 08:37:09 last-caller-id=08:55:31:3E:9D:16 last-disconnect-reason=hung-up 

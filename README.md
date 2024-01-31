@@ -1,6 +1,7 @@
 # MAC Address to Vendor Script
 
 This Python script takes a list of MAC addresses and exports them as a list of corresponding vendors.
+
 Source Database:
 https://maclookup.app/downloads/csv-database
 

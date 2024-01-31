@@ -1,50 +1,52 @@
+## English
+
 import os
 import csv
 
-def pesquisar_fabricante(endereco_mac):
-    # Obtém o caminho completo do arquivo CSV de fabricantes
-    pasta_atual = os.getcwd()
-    caminho_arquivo_csv = os.path.join(pasta_atual, 'mac-vendors-export.csv')
+def search_manufacturer(mac_address):
+    # Get the full path of the manufacturer CSV file
+    current_folder = os.getcwd()
+    csv_file_path = os.path.join(current_folder, 'mac-vendors-export.csv')
 
-    # Faz a pesquisa no arquivo CSV
-    with open(caminho_arquivo_csv, newline='', encoding='utf-8') as arquivo_csv:
-        leitor_csv = csv.reader(arquivo_csv, delimiter=',', quotechar='"')
-        for linha in leitor_csv:
-            if endereco_mac.startswith(linha[0]):
-                return linha[1]
-    return 'Não encontrado'
+    # Search in the CSV file
+    with open(csv_file_path, newline='', encoding='utf-8') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',', quotechar='"')
+        for row in csv_reader:
+            if mac_address.startswith(row[0]):
+                return row[1]
+    return 'Not found'
 
-pasta_mac_list = 'Mac list'
-pasta_vendor_list = 'Vendor list'
+mac_list_folder = 'Mac list'
+vendor_list_folder = 'Vendor list'
 
-# Cria a pasta Vendor list se ela não existir
-if not os.path.exists(pasta_vendor_list):
-    os.makedirs(pasta_vendor_list)
+# Create the Vendor list folder if it doesn't exist
+if not os.path.exists(vendor_list_folder):
+    os.makedirs(vendor_list_folder)
 
-# Percorre cada arquivo na pasta Mac list
-todos_arquivos_processados = False
-for nome_arquivo in os.listdir(pasta_mac_list):
-    caminho_arquivo_mac = os.path.join(pasta_mac_list, nome_arquivo)
+# Iterate through each file in the Mac list folder
+all_files_processed = False
+for filename in os.listdir(mac_list_folder):
+    mac_file_path = os.path.join(mac_list_folder, filename)
 
-    # Cria um novo arquivo para cada lista de endereços MAC
-    nome_arquivo_saida = os.path.splitext(nome_arquivo)[0] + '_fabricantes.txt'
-    caminho_arquivo_saida = os.path.join(pasta_vendor_list, nome_arquivo_saida)
-    with open(caminho_arquivo_saida, 'w') as arquivo_saida:
+    # Create a new file for each MAC address list
+    output_filename = os.path.splitext(filename)[0] + '_manufacturers.txt'
+    output_file_path = os.path.join(vendor_list_folder, output_filename)
+    with open(output_file_path, 'w') as output_file:
 
-        # Faz a pesquisa de fabricantes para cada endereço MAC na lista
-        with open(caminho_arquivo_mac, 'r') as arquivo_mac:
-            for endereco_mac in arquivo_mac:
-                fabricante = pesquisar_fabricante(endereco_mac.strip())
-                print(f'{nome_arquivo_saida} Processando endereço MAC: {endereco_mac.strip()} de {fabricante}')
-                mensagem = f'{fabricante}\n'
-                arquivo_saida.write(mensagem)
+        # Search for manufacturers for each MAC address in the list
+        with open(mac_file_path, 'r') as mac_file:
+            for mac_address in mac_file:
+                manufacturer = search_manufacturer(mac_address.strip())
+                print(f'{output_filename} Processing MAC Address: {mac_address.strip()} from {manufacturer}')
+                message = f'{manufacturer}\n'
+                output_file.write(message)
 
-    print(f'Arquivo {nome_arquivo_saida} criado com sucesso na pasta {pasta_vendor_list}')
+    print(f'File {output_filename} successfully created in the {vendor_list_folder} folder')
 
-    # Verifica se este foi o último arquivo na pasta Mac list
-    if nome_arquivo == os.listdir(pasta_mac_list)[-1]:
-        todos_arquivos_processados = True
+    # Check if this was the last file in the Mac list folder
+    if filename == os.listdir(mac_list_folder)[-1]:
+        all_files_processed = True
 
-    # Sai do loop se todos os arquivos foram processados
-    if todos_arquivos_processados:
+    # Exit the loop if all files have been processed
+    if all_files_processed:
         break
